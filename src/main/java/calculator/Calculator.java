@@ -68,16 +68,13 @@ public class Calculator extends JFrame {
         // TODO
         // Replace the anonymous class with a lambda expression
         operationSelector.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        try {
-                            result.setText("" + calculate());
-                        } catch (NumberFormatException ex) {
-                            System.out.println("Invalid input.");
-                        }
-                    }
-                });
+            e -> {
+                try {
+                    result.setText("" + calculate());
+                } catch (NumberFormatException ex) {
+                    System.out.println("Invalid input.");
+                }
+            });
     }
 
     /**
