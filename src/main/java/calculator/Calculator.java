@@ -42,6 +42,7 @@ public class Calculator extends JFrame {
     private void setupOperationSelector() {
         operations = new HashMap<>();
         operations.put("Add", new Add());
+        operations.put("Sub", new Sub());
 
         // TODO
         // Add a new operation "Sub" for the subtraction of two integers as an (instance of a) Java
@@ -50,8 +51,16 @@ public class Calculator extends JFrame {
         // TODO
         // Add a new operation "Mul" for the multiplication of two integers as an anonymous class
 
+        operations.put("Mul", new Operation() {
+            @Override
+            public int doOperation(int a, int b) {
+                return a * b;
+            }
+        });
+
         // TODO
         // Add a new operation "Div" for the division of two integers as a lambda expression
+        operations.put("Div" , (a, b) -> a/b);
 
         operationSelector = new JComboBox<>();
         operations.forEach((key, value) -> operationSelector.addItem(key));
